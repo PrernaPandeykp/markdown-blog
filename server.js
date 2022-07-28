@@ -2,29 +2,24 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const articleRouter =require('./routes/articles')
+const Article=require('./models/article')
+const methodOverride  = require('method-override')
 const app =express()
 
 mongoose.connect('mongodb+srv://prerna_pandey:Prerna.mongodb@cluster0.l9fkq.mongodb.net/?retryWrites=true&w=majority',{ 
-    useNewUrlParser : true,useUnifiedTopology: true
+    useNewUrlParser : true,useUnifiedTopology: true,
+    useCreateIndex:true
 })
 
 app.set('view engine','ejs')
 
-
 app.use(express.urlencoded({ extended :false }))
+app.use(methodOverride('_method'))
 
-app.get('/',(req,res)=>{
-    const articles=[{
-        title: "Test Article",
-        createdAt:new Date(),
-        description : "Test Desc 1"
-    },
-    {
-        title: "Test Article",
-        createdAt:new Date(),
-        description : "Test Desc 2"
-    }
-]
+app.get('/',async (req,res)=>{
+    const articles =await Article.find().sort({
+        createdAt:'desc'
+    })
     res.render('articles/index',{articles: articles})
 })
 

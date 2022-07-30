@@ -8,7 +8,7 @@ const app =express()
 
 mongoose.connect('mongodb+srv://prerna_pandey:Prerna.mongodb@cluster0.l9fkq.mongodb.net/?retryWrites=true&w=majority',{ 
     useNewUrlParser : true,useUnifiedTopology: true,
-    useCreateIndex:true
+    
 })
 
 app.set('view engine','ejs')

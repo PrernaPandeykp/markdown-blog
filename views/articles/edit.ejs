@@ -8,10 +8,10 @@
     <title>Blog</title>
 </head>
 <body>
-    <div class="container mt-4" style="width: 50rem; text-align: center;background-color:rgb(206, 223, 226)">
-        <h1 class="mb-4 p-2">New Article</h1>
+    <div class="container mt-4 pt-4" style="width: 50rem; text-align: center;background-color:rgb(206, 223, 226);padding-left: 20px;">
+        <h1 class="mb-4">Edit Article</h1>
 
-        <form action="/articles" method="POST">
+        <form action="/articles/<%= article.id %>?_method=PUT" method="POST">
             <%- include('_form_fields.ejs') %>
         </form>
     </div>

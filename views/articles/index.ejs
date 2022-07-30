@@ -8,13 +8,14 @@
     <title>Blog</title>
 </head>
 <body>
-    <div class="container">
-        <h1 class="mb-4">Blog Articles</h1>
+    <div class="container" style="padding-bottom: 20%; background-color:rgb(206, 223, 226)">
+        <center>
+        <h1 class="mb-4 mt-4 p-4">Blog Articles</h1>
         <a href="/articles/new" class="btn btn-success">New Article</a>
-        
+        </center>
         <% articles.forEach(article => { %>
-            <div class="card mt-4">
-                <div class="card-body">
+            <div class="card mt-4 " style="width: 50rem; margin-left: 20%; margin-right: 30%;">
+                <div class="p-4 bg-light border" >
                     <h4 class="card-title"><%= article.title %></h4>
                     <div class="card-subtitle text-muted mb-2">
                         <%= article.createdAt.toLocaleDateString() %>

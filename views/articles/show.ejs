@@ -8,16 +8,18 @@
     <title>Blog</title>
 </head>
 <body>
-    <div class="container">
-        <h1 class="mb-4"><%= article.title %></h1>
+    <div class="container mt-4 " style="width: 50rem; text-align:left;background-color:rgb(206, 223, 226);padding-left: 20px;padding-top: 20px;">
+        <center><h1 class="mb-4"> Your New Article </h1></center>
+        <h3 class="mb-4"><%= article.title %></h3>
         <div class="text-muted mb-2">
             <%= article.createdAt.toLocaleDateString() %>
         </div>
-        <a href="/" class="btn btn-secondary">All Articles</a> 
-        <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
         <div>
-            <%= article.markdown %>
+            <%- article.sanitizedHtml %>
         </div>
+        
+        <a href="/" class="btn btn-secondary mb-4">All Articles</a> 
+        <a href="/articles/edit/<%= article.id %>" class="btn btn-info mb-4">Edit</a>
         
     
     </div>
